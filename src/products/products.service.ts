@@ -4,7 +4,7 @@ import { Product } from './products.model';
 
 @Injectable()
 export class ProductsService {
-    products: Product[] = [];
+    private products: Product[] = [];
 
     insertProduct = (title: string, desc: string, price: number) => {
         const prodId = new Date().toString()
@@ -12,5 +12,8 @@ export class ProductsService {
         this.products.push(newProduct)
         return prodId
     } 
+
+    allProducts = () => this.products
+    
 
 }
