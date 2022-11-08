@@ -39,4 +39,11 @@ export class PostController {
       },
     });
   }
+
+  @Get('feed')
+  async getPublishedPosts(): Promise<PostModel[]> {
+    return await this.postService.posts({
+      orderBy: { id: 'asc' },
+    });
+  }
 }
